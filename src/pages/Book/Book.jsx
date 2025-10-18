@@ -1,11 +1,13 @@
 import React, { use } from 'react';
 import { FaRegStarHalfStroke } from "react-icons/fa6";
+import { Link } from 'react-router';
 
 const Book = ({singleBook}) => {
 
     // 
-    const {bookName,author,image,rating,category,tags,yearOfPublishing}=singleBook;
+    const {bookName,author,image,rating,category,tags,yearOfPublishing,bookId}=singleBook;
     return (
+       <Link to={`/bookDetails/${bookId}`}>
         <div className="card bg-base-100 w-96 shadow-sm border p-5">
   <figure className='p-4 bg-gray-200 w-2/3 mx-auto'>
     <img
@@ -31,7 +33,8 @@ const Book = ({singleBook}) => {
       <div className="badge badge-outline">{rating} <FaRegStarHalfStroke /></div>
     </div>
   </div>
-</div>
+        </div>
+       </Link>
     );
 };
 
