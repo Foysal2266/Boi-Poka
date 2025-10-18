@@ -4,7 +4,7 @@ import { FaRegStarHalfStroke } from "react-icons/fa6";
 const Book = ({singleBook}) => {
 
     // 
-    const {bookName,author,image,rating,category}=singleBook;
+    const {bookName,author,image,rating,category,tags,yearOfPublishing}=singleBook;
     return (
         <div className="card bg-base-100 w-96 shadow-sm border p-5">
   <figure className='p-4 bg-gray-200 w-2/3 mx-auto'>
@@ -14,11 +14,18 @@ const Book = ({singleBook}) => {
       alt="Shoes" />
   </figure>
   <div className="card-body">
+    <div className='flex justify-center gap-10'>
+        {
+            tags.map(tag=><button>{tag}</button>)
+        }
+    </div>
+
     <h2 className="card-title">
       {bookName}
-      <div className="badge badge-secondary">NEW</div>
+      <div className="badge badge-secondary">{yearOfPublishing}</div>
     </h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+    <p>By:{author}</p>
+    <div className='border-t-1 border-dashed'></div>
     <div className="card-actions justify-end">
       <div className="badge badge-outline">{category}</div>
       <div className="badge badge-outline">{rating} <FaRegStarHalfStroke /></div>
